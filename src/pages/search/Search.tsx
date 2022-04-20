@@ -22,17 +22,15 @@ type ResultGifs = ResultGif[];
 function Search() {
   const { REACT_APP_GIPHY_API_KEY } = process.env;
   const [searchResults, setSearchResults] = React.useState<ResultGifs>([]);
-  // const [searchQuery, setSearchQuery] = React.useState("");
 
   const query = useSelector((state: RootStateOrAny) => state.search.value);
 
-  // const { value, nama, jenis_kelamin } = useSelector((state) => state.search);
   const dispatch = useDispatch();
 
   const getGif = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     fetch(
-      `http://api.giphy.com/v1/gifs/search?api_key=${REACT_APP_GIPHY_API_KEY}&q=${query}&limit=20`
+      `https://api.giphy.com/v1/gifs/search?api_key=${REACT_APP_GIPHY_API_KEY}&q=${query}&limit=20`
     )
       .then((response) => response.json())
       .then((result) => {

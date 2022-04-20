@@ -20,7 +20,7 @@ export default function Trending() {
 
   useEffect(() => {
     fetch(
-      `http://api.giphy.com/v1/gifs/trending?api_key=${REACT_APP_GIPHY_API_KEY}`
+      `https://api.giphy.com/v1/gifs/trending?api_key=${REACT_APP_GIPHY_API_KEY}`
     )
       .then((response) => response.json())
       .then((result) => {
