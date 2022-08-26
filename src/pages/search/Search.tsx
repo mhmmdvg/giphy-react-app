@@ -1,5 +1,5 @@
 import { ImageList, ImageListItem } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RootStateOrAny, useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import SearchForm from '../../component/searchComp/SearchForm';
@@ -37,6 +37,20 @@ function Search() {
         setSearchResults(result.data);
       });
   };
+
+  useEffect(() => {
+    fetch('https://eling-api.qiffyamuhammad.my.id/api/login', {
+      method: 'POST',
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        username: 'qiffym',
+        password: '12345',
+      }),
+    }).then((res) => console.log(res));
+  }, []);
 
   return (
     <>
