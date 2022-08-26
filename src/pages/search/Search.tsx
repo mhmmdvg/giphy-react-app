@@ -44,6 +44,7 @@ function Search() {
       headers: {
         'X-Requested-With': 'XMLHttpRequest',
         Accept: 'application/json',
+        'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify({
         username: 'qiffym',
