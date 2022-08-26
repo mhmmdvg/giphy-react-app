@@ -1,4 +1,5 @@
 import { ImageList, ImageListItem } from '@mui/material';
+import axios from 'axios';
 import React, { useEffect } from 'react';
 import { RootStateOrAny, useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -39,18 +40,28 @@ function Search() {
   };
 
   useEffect(() => {
-    fetch('https://eling-api.qiffyamuhammad.my.id/api/login', {
-      method: 'POST',
-      headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-        Accept: 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: JSON.stringify({
-        username: 'qiffym',
-        password: '12345',
-      }),
-    }).then((res) => console.log(res));
+    const fetchingData = async () => {
+      axios
+        .post('https://eling-api.qiffyamuhammad.my.id/api/login', {
+          username: 'qiffym',
+          password: '12345',
+        })
+        .then((res) => console.log(res));
+    };
+    // fetch('https://eling-api.qiffyamuhammad.my.id/api/login', {
+    //   method: 'POST',
+    //   headers: {
+    //     'X-Requested-With': 'XMLHttpRequest',
+    //     Accept: 'application/json',
+    //     'Access-Control-Allow-Origin': '*',
+    //   },
+    //   body: JSON.stringify({
+    //     username: 'qiffym',
+    //     password: '12345',
+    //   }),
+    // }).then((res) => console.log(res));
+
+    fetchingData();
   }, []);
 
   return (
